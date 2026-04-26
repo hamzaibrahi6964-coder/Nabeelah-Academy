@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal - Nabeelah Academy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+<div class="nav-container">
+<a href="index.html" class="brand">
+<img src="logo.png">
+<h3>Nabeelah Academy</h3>
+</a>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="academics.html">Academics</a>
+<a href="admission.html">Admissions</a>
+<a href="portal.html" class="active">Portal</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="page-hero">
+<div class="overlay">
+<h1>School Portal</h1>
+<p>Login to access your dashboard</p>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Login</h2>
+
+<form class="form">
+<input type="text" placeholder="Email or Student ID">
+<input type="password" placeholder="Password">
+<button class="btn primary">Login</button>
+</form>
+
+</section>
+
+<footer><p>© 2026 Nabeelah Academy</p></footer>
+
+<script>
+menuBtn.onclick = () => navLinks.classList.toggle("show");
+</script>
+
+</body>
+</html>
