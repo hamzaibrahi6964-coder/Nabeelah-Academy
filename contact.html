@@ -1,53 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact - Nabeelah Academy</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Nabeelah Academy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <header class="site-header">
-<div class="nav-container">
-<a href="index.html" class="brand">
-<img src="logo.png">
-<h3>Nabeelah Academy</h3>
-</a>
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Nabeelah Academy Logo">
+      <div>
+        <h3>Nabeelah Academy</h3>
+        <span>Inspiring Greatness</span>
+      </div>
+    </a>
 
-<button class="menu-btn" id="menuBtn">☰</button>
+    <button class="menu-btn" id="menuBtn">☰</button>
 
-<nav class="nav-links" id="navLinks">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="academics.html">Academics</a>
-<a href="admission.html">Admissions</a>
-<a href="portal.html">Portal</a>
-<a href="contact.html" class="active">Contact</a>
-</nav>
-</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="academics.html">Academics</a>
+      <a href="admission.html">Admissions</a>
+      <a href="portal.html">Portal</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<section class="page-hero">
-<div class="overlay">
-<h1>Contact Us</h1>
-<p>Reach out to Nabeelah Academy</p>
-</div>
+<section class="inner-hero">
+  <div>
+    <span class="badge">Contact Us</span>
+    <h1>Speak With Nabeelah Academy</h1>
+    <p>Reach us for admission, enquiries and school information.</p>
+  </div>
 </section>
 
-<section class="section">
-<h2 class="section-title">Contact Information</h2>
+<section class="section contact-grid">
+  <div class="premium-box">
+    <h3>School Contact</h3>
+    <p>📍 Gamagira Road, Ungwan Sanusi, Kaduna, Nigeria</p>
+    <p>📞 0903 399 3930</p>
+    <p>📧 nabeelahacademy2@gmail.com</p>
+  </div>
 
-<p>📍 Gamagira Road, Ungwan Sanusi, Kaduna</p>
-<p>📞 0903 399 3930</p>
-<p>📧 nabeelahacademy2@gmail.com</p>
-
+  <form class="premium-form contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="email" placeholder="Email Address">
+    <textarea placeholder="Your Message"></textarea>
+    <button type="submit" class="btn primary">Send Message</button>
+  </form>
 </section>
 
-<footer><p>© 2026 Nabeelah Academy</p></footer>
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Nabeelah Academy</h3>
+      <p>Enriching Lives, Inspiring Greatness</p>
+    </div>
+    <div>
+      <p>📍 Gamagira Road, Ungwan Sanusi, Kaduna</p>
+      <p>📞 0903 399 3930</p>
+      <p>📧 nabeelahacademy2@gmail.com</p>
+    </div>
+  </div>
+  <div class="copy">© 2026 Nabeelah Academy. All Rights Reserved.</div>
+</footer>
 
 <script>
-menuBtn.onclick = () => navLinks.classList.toggle("show");
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+menuBtn.addEventListener("click", () => navLinks.classList.toggle("show"));
 </script>
 
 </body>
