@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard | Nabeelah Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Nabeelah Academy Logo">
+      <div>
+        <h3>Nabeelah Academy</h3>
+        <span>Student Dashboard</span>
+      </div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="portal.html">Portal</a>
+      <a href="student-dashboard.html" class="active">Dashboard</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="dashboard-page">
+
+  <section class="dash-hero">
+    <div>
+      <span class="badge">AI Powered Result System</span>
+      <h1>Welcome, Aisha Musa</h1>
+      <p>Class: JSS 2 | Term: Second Term | Session: 2025/2026</p>
+    </div>
+  </section>
+
+  <section class="dashboard-grid">
+
+    <div class="dash-card">
+      <h3>Total Average</h3>
+      <h2 id="averageScore">0%</h2>
+      <p>Overall student performance</p>
+    </div>
+
+    <div class="dash-card">
+      <h3>AI Prediction</h3>
+      <h2 id="aiPrediction">Checking...</h2>
+      <p id="predictionText">Analyzing result trend</p>
+    </div>
+
+    <div class="dash-card">
+      <h3>Weak Subject</h3>
+      <h2 id="weakSubject">Checking...</h2>
+      <p>Subject that needs more attention</p>
+    </div>
+
+  </section>
+
+  <section class="section result-section">
+    <div class="result-header">
+      <div>
+        <span class="section-tag">Academic Result</span>
+        <h2>Second Term Result</h2>
+      </div>
+
+      <button class="btn primary" onclick="window.print()">Download / Print Result</button>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>CA</th>
+            <th>Exam</th>
+            <th>Total</th>
+            <th>Grade</th>
+            <th>Remark</th>
+          </tr>
+        </thead>
+        <tbody id="resultTable"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section ai-report">
+    <div class="premium-box">
+      <h3>AI Academic Comment</h3>
+      <p id="teacherComment"></p>
+    </div>
+
+    <div class="premium-box">
+      <h3>Parent Advice</h3>
+      <p id="parentAdvice"></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Nabeelah Academy</h3>
+      <p>Enriching Lives, Inspiring Greatness</p>
+    </div>
+
+    <div>
+      <p>📍 Gamagira Road, Kaduna</p>
+      <p>📞 0903 399 3930</p>
+      <p>📧 nabeelahacademy2@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="copy">© 2026 Nabeelah Academy</div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.onclick = () => {
+  navLinks.classList.toggle("show");
+};
+
+const results = [
+  { subject: "Mathematics", ca: 24, exam: 54 },
+  { subject: "English Language", ca: 26, exam: 58 },
+  { subject: "Basic Science", ca: 22, exam: 50 },
+  { subject: "Social Studies", ca: 28, exam: 60 },
+  { subject: "Computer Studies", ca: 29, exam: 63 },
+  { subject: "Islamic Studies", ca: 25, exam: 55 }
+];
+
+function getGrade(score) {
+  if (score >= 70) return "A";
+  if (score >= 60) return "B";
+  if (score >= 50) return "C";
+  if (score >= 45) return "D";
+  if (score >= 40) return "E";
+  return "F";
+}
+
+function getRemark(score) {
+  if (score >= 70) return "Excellent";
+  if (score >= 60) return "Very Good";
+  if (score >= 50) return "Good";
+  if (score >= 45) return "Fair";
+  if (score >= 40) return "Pass";
+  return "Needs Attention";
+}
+
+const table = document.getElementById("resultTable");
+
+let totalScore = 0;
+let weakest = results[0];
+
+results.forEach(item => {
+  const total = item.ca + item.exam;
+  totalScore += total;
+
+  if (total < (weakest.ca + weakest.exam)) {
+    weakest = item;
+  }
+
+  table.innerHTML += `
+    <tr>
+      <td>${item.subject}</td>
+      <td>${item.ca}</td>
+      <td>${item.exam}</td>
+      <td>${total}</td>
+      <td>${getGrade(total)}</td>
+      <td>${getRemark(total)}</td>
+    </tr>
+  `;
+});
+
+const average = Math.round(totalScore / results.length);
+document.getElementById("averageScore").textContent = average + "%";
+
+const weakTotal = weakest.ca + weakest.exam;
+document.getElementById("weakSubject").textContent = weakest.subject;
+
+let prediction = "";
+let predictionText = "";
+let teacherComment = "";
+let parentAdvice = "";
+
+if (average >= 70) {
+  prediction = "Excellent 📈";
+  predictionText = "Student is performing strongly.";
+  teacherComment = "The student has shown excellent academic performance and should be encouraged to maintain this standard.";
+  parentAdvice = "Parents should continue supporting the student with reading materials and a stable study routine.";
+} else if (average >= 60) {
+  prediction = "Improving ✅";
+  predictionText = "Student is doing well with room for growth.";
+  teacherComment = "The student is performing well and showing good academic promise, but can still improve in weaker areas.";
+  parentAdvice = "Parents should encourage regular revision, especially in " + weakest.subject + ".";
+} else if (average >= 50) {
+  prediction = "Average ⚠️";
+  predictionText = "Student needs more consistency.";
+  teacherComment = "The student has average performance and should put more effort into classwork, assignments and revision.";
+  parentAdvice = "Parents should monitor study time closely and give extra support in " + weakest.subject + ".";
+} else {
+  prediction = "At Risk 🚨";
+  predictionText = "Student needs urgent academic attention.";
+  teacherComment = "The student needs serious academic support and close monitoring from both teachers and parents.";
+  parentAdvice = "Parents should meet the school for academic guidance and arrange extra lessons in " + weakest.subject + ".";
+}
+
+document.getElementById("aiPrediction").textContent = prediction;
+document.getElementById("predictionText").textContent = predictionText;
+document.getElementById("teacherComment").textContent = teacherComment;
+document.getElementById("parentAdvice").textContent = parentAdvice;
+</script>
+
+</body>
+</html>
