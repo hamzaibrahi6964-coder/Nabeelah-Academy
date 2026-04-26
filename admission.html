@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admission - Nabeelah Academy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+<div class="nav-container">
+<a href="index.html" class="brand">
+<img src="logo.png">
+<h3>Nabeelah Academy</h3>
+</a>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="academics.html">Academics</a>
+<a href="admission.html" class="active">Admissions</a>
+<a href="portal.html">Portal</a>
+<a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<section class="page-hero">
+<div class="overlay">
+<h1>Admission</h1>
+<p>Apply for your child today</p>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Admission Form</h2>
+
+<form class="form">
+<input type="text" placeholder="Student Name" required>
+<input type="text" placeholder="Parent Name" required>
+<input type="text" placeholder="Phone Number" required>
+<select>
+<option>Select Class</option>
+<option>NUR 1</option>
+<option>PRY 1</option>
+<option>JSS 1</option>
+<option>SS 1</option>
+</select>
+<textarea placeholder="Additional Information"></textarea>
+<button class="btn primary">Submit Application</button>
+</form>
+
+</section>
+
+<footer><p>© 2026 Nabeelah Academy</p></footer>
+
+<script>
+menuBtn.onclick = () => navLinks.classList.toggle("show");
+</script>
+
+</body>
+</html>
