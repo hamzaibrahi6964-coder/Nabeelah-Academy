@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teacher Dashboard | Nabeelah Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Nabeelah Academy Logo">
+      <div>
+        <h3>Nabeelah Academy</h3>
+        <span>Teacher Dashboard</span>
+      </div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="portal.html">Portal</a>
+      <a href="teacher-dashboard.html" class="active">Teacher</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="dashboard-page">
+
+  <section class="dash-hero">
+    <div>
+      <span class="badge">AI Assisted Score System</span>
+      <h1>Teacher Dashboard</h1>
+      <p>Enter CA and exam scores. The system calculates totals, grades, remarks and AI comments automatically.</p>
+    </div>
+  </section>
+
+  <section class="dashboard-grid">
+    <div class="dash-card">
+      <h3>Class Average</h3>
+      <h2 id="classAverage">0%</h2>
+      <p>Overall class performance</p>
+    </div>
+
+    <div class="dash-card">
+      <h3>Weak Students</h3>
+      <h2 id="weakCount">0</h2>
+      <p>Students below 50%</p>
+    </div>
+
+    <div class="dash-card">
+      <h3>AI Class Insight</h3>
+      <h2 id="classInsight">Checking...</h2>
+      <p id="classAdvice">Enter scores to generate insight</p>
+    </div>
+  </section>
+
+  <section class="section result-section">
+    <div class="result-header">
+      <div>
+        <span class="section-tag">Score Entry</span>
+        <h2>Mathematics Result Entry</h2>
+      </div>
+      <button class="btn primary" onclick="calculateResults()">Analyze Scores</button>
+    </div>
+
+    <div class="score-note">
+      <strong>Score Rule:</strong> CA should not be more than 30. Exam should not be more than 70.
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>CA / 30</th>
+            <th>Exam / 70</th>
+            <th>Total</th>
+            <th>Grade</th>
+            <th>Remark</th>
+            <th>AI Comment</th>
+          </tr>
+        </thead>
+        <tbody id="teacherScoreTable">
+          <tr>
+            <td>NAB/JSS2/001</td>
+            <td>Aisha Musa</td>
+            <td><input type="number" class="ca-score" value="24" min="0" max="30"></td>
+            <td><input type="number" class="exam-score" value="54" min="0" max="70"></td>
+            <td class="total-score">-</td>
+            <td class="grade">-</td>
+            <td class="remark">-</td>
+            <td class="ai-comment">-</td>
+          </tr>
+
+          <tr>
+            <td>NAB/JSS2/002</td>
+            <td>Abdulrahman Sani</td>
+            <td><input type="number" class="ca-score" value="18" min="0" max="30"></td>
+            <td><input type="number" class="exam-score" value="35" min="0" max="70"></td>
+            <td class="total-score">-</td>
+            <td class="grade">-</td>
+            <td class="remark">-</td>
+            <td class="ai-comment">-</td>
+          </tr>
+
+          <tr>
+            <td>NAB/JSS2/003</td>
+            <td>Fatima Bello</td>
+            <td><input type="number" class="ca-score" value="28" min="0" max="30"></td>
+            <td><input type="number" class="exam-score" value="62" min="0" max="70"></td>
+            <td class="total-score">-</td>
+            <td class="grade">-</td>
+            <td class="remark">-</td>
+            <td class="ai-comment">-</td>
+          </tr>
+
+          <tr>
+            <td>NAB/JSS2/004</td>
+            <td>Yusuf Ibrahim</td>
+            <td><input type="number" class="ca-score" value="14" min="0" max="30"></td>
+            <td><input type="number" class="exam-score" value="25" min="0" max="70"></td>
+            <td class="total-score">-</td>
+            <td class="grade">-</td>
+            <td class="remark">-</td>
+            <td class="ai-comment">-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section ai-report">
+    <div class="premium-box">
+      <h3>AI Teacher Assistant</h3>
+      <p id="teacherAssistantText">
+        Click “Analyze Scores” to allow the system check scores, detect weak students and generate teacher comments.
+      </p>
+    </div>
+
+    <div class="premium-box">
+      <h3>Next Teaching Action</h3>
+      <p id="teachingAction">
+        The system will suggest what the teacher should focus on after analyzing class performance.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Nabeelah Academy</h3>
+      <p>Enriching Lives, Inspiring Greatness</p>
+    </div>
+
+    <div>
+      <p>📍 Gamagira Road, Kaduna</p>
+      <p>📞 0903 399 3930</p>
+      <p>📧 nabeelahacademy2@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="copy">© 2026 Nabeelah Academy</div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.onclick = () => {
+  navLinks.classList.toggle("show");
+};
+
+function getGrade(score) {
+  if (score >= 70) return "A";
+  if (score >= 60) return "B";
+  if (score >= 50) return "C";
+  if (score >= 45) return "D";
+  if (score >= 40) return "E";
+  return "F";
+}
+
+function getRemark(score) {
+  if (score >= 70) return "Excellent";
+  if (score >= 60) return "Very Good";
+  if (score >= 50) return "Good";
+  if (score >= 45) return "Fair";
+  if (score >= 40) return "Pass";
+  return "Needs Attention";
+}
+
+function getAIComment(name, score) {
+  if (score >= 70) {
+    return name + " is performing excellently and should be encouraged to maintain this standard.";
+  } else if (score >= 60) {
+    return name + " is doing well but can still improve with regular revision.";
+  } else if (score >= 50) {
+    return name + " has average performance and needs more practice to improve.";
+  } else if (score >= 40) {
+    return name + " is below expected level and requires extra academic support.";
+  } else {
+    return name + " needs urgent attention from both teacher and parent.";
+  }
+}
+
+function calculateResults() {
+  const rows = document.querySelectorAll("#teacherScoreTable tr");
+  let totalClassScore = 0;
+  let weakStudents = 0;
+  let invalidScore = false;
+  let weakestStudent = "";
+  let lowestScore = 101;
+
+  rows.forEach(row => {
+    const name = row.children[1].textContent;
+    const caInput = row.querySelector(".ca-score");
+    const examInput = row.querySelector(".exam-score");
+
+    let ca = Number(caInput.value);
+    let exam = Number(examInput.value);
+
+    row.classList.remove("weak-row", "invalid-row");
+
+    if (ca < 0 || ca > 30 || exam < 0 || exam > 70) {
+      invalidScore = true;
+      row.classList.add("invalid-row");
+      row.querySelector(".total-score").textContent = "Invalid";
+      row.querySelector(".grade").textContent = "-";
+      row.querySelector(".remark").textContent = "Check score";
+      row.querySelector(".ai-comment").textContent = "CA must be 0-30 and Exam must be 0-70.";
+      return;
+    }
+
+    const total = ca + exam;
+    totalClassScore += total;
+
+    if (total < 50) {
+      weakStudents++;
+      row.classList.add("weak-row");
+    }
+
+    if (total < lowestScore) {
+      lowestScore = total;
+      weakestStudent = name;
+    }
+
+    row.querySelector(".total-score").textContent = total;
+    row.querySelector(".grade").textContent = getGrade(total);
+    row.querySelector(".remark").textContent = getRemark(total);
+    row.querySelector(".ai-comment").textContent = getAIComment(name, total);
+  });
+
+  if (invalidScore) {
+    document.getElementById("classInsight").textContent = "Score Error ⚠️";
+    document.getElementById("classAdvice").textContent = "Some scores are above the allowed limit.";
+    document.getElementById("teacherAssistantText").textContent =
+      "The system detected invalid scores. Please correct highlighted rows before saving.";
+    document.getElementById("teachingAction").textContent =
+      "Check CA and Exam entries carefully. CA maximum is 30 and Exam maximum is 70.";
+    return;
+  }
+
+  const classAverage = Math.round(totalClassScore / rows.length);
+
+  document.getElementById("classAverage").textContent = classAverage + "%";
+  document.getElementById("weakCount").textContent = weakStudents;
+
+  if (classAverage >= 70) {
+    document.getElementById("classInsight").textContent = "Excellent 📈";
+    document.getElementById("classAdvice").textContent = "The class is performing very well.";
+    document.getElementById("teacherAssistantText").textContent =
+      "The class performance is strong. Continue with advanced practice and maintain revision.";
+    document.getElementById("teachingAction").textContent =
+      "Give more challenging exercises and encourage students to maintain the standard.";
+  } else if (classAverage >= 60) {
+    document.getElementById("classInsight").textContent = "Good ✅";
+    document.getElementById("classAdvice").textContent = "The class is doing well with room for improvement.";
+    document.getElementById("teacherAssistantText").textContent =
+      "Most students are doing well, but some still need support. Weakest student detected: " + weakestStudent + ".";
+    document.getElementById("teachingAction").textContent =
+      "Revise difficult topics and give short weekly tests to improve consistency.";
+  } else if (classAverage >= 50) {
+    document.getElementById("classInsight").textContent = "Average ⚠️";
+    document.getElementById("classAdvice").textContent = "The class needs more practice.";
+    document.getElementById("teacherAssistantText").textContent =
+      "Class performance is average. " + weakStudents + " student(s) scored below 50%.";
+    document.getElementById("teachingAction").textContent =
+      "Organize revision classes and focus on topics students commonly failed.";
+  } else {
+    document.getElementById("classInsight").textContent = "At Risk 🚨";
+    document.getElementById("classAdvice").textContent = "The class needs urgent academic attention.";
+    document.getElementById("teacherAssistantText").textContent =
+      "The class performance is weak. Immediate teacher intervention is recommended.";
+    document.getElementById("teachingAction").textContent =
+      "Repeat key topics, give assignments, and invite parents of weak students for support.";
+  }
+}
+
+calculateResults();
+</script>
+
+</body>
+</html>
