@@ -101,8 +101,9 @@ portalLoginForm.addEventListener("submit", function(e) {
 
   if (role.value === "parent") {
   window.location.href = "student-dashboard.html";
-} else if (role.value === "teacher") {
-  alert("Teacher dashboard is coming next.");
+else if (role.value === "teacher") {
+  window.location.href = "teacher-dashboard.html";
+}
 } else if (role.value === "admin") {
   window.location.href = "admin-dashboard.html";
 } else {
