@@ -89,8 +89,26 @@
 <script>
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
-menuBtn.addEventListener("click", () => navLinks.classList.toggle("show"));
-</script>
+const portalLoginForm = document.getElementById("portalLoginForm");
+const role = document.getElementById("role");
 
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+portalLoginForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  if (role.value === "parent") {
+    window.location.href = "student-dashboard.html";
+  } else if (role.value === "teacher") {
+    alert("Teacher dashboard is coming next.");
+  } else if (role.value === "admin") {
+    alert("Admin dashboard is coming next.");
+  } else {
+    alert("Please select a role.");
+  }
+});
+</script>
 </body>
 </html>
