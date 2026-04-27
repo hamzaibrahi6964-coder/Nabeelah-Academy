@@ -916,3 +916,42 @@ tr:hover {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== TEACHER DASHBOARD ===== */
+
+.score-note {
+  background: #fff8dc;
+  border: 1px solid var(--gold);
+  color: var(--navy);
+  padding: 15px 18px;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.ca-score,
+.exam-score {
+  width: 90px;
+  padding: 10px;
+  border: 1px solid #dce3f0;
+  border-radius: 10px;
+  outline: none;
+}
+
+.ca-score:focus,
+.exam-score:focus {
+  border-color: var(--gold);
+}
+
+.weak-row {
+  background: #fff4f4;
+}
+
+.invalid-row {
+  background: #ffe2e2;
+}
+
+.ai-comment {
+  min-width: 280px;
+  font-size: 14px;
+  line-height: 1.5;
+}
