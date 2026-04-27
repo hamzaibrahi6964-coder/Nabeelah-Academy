@@ -100,14 +100,14 @@ portalLoginForm.addEventListener("submit", function(e) {
   e.preventDefault();
 
   if (role.value === "parent") {
-    window.location.href = "student-dashboard.html";
-  } else if (role.value === "teacher") {
-    alert("Teacher dashboard is coming next.");
-  } else if (role.value === "admin") {
-    alert("Admin dashboard is coming next.");
-  } else {
-    alert("Please select a role.");
-  }
+  window.location.href = "student-dashboard.html";
+} else if (role.value === "teacher") {
+  alert("Teacher dashboard is coming next.");
+} else if (role.value === "admin") {
+  window.location.href = "admin-dashboard.html";
+} else {
+  alert("Please select a role.");
+}
 });
 </script>
 </body>
