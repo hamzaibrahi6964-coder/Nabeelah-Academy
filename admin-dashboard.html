@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | Nabeelah Academy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-container">
+    <a href="index.html" class="brand">
+      <img src="logo.png" alt="Nabeelah Academy Logo">
+      <div>
+        <h3>Nabeelah Academy</h3>
+        <span>Admin Dashboard</span>
+      </div>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="portal.html">Portal</a>
+      <a href="admin-dashboard.html" class="active">Admin</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="dashboard-page">
+
+  <section class="dash-hero">
+    <div>
+      <span class="badge">School Management Center</span>
+      <h1>Admin Dashboard</h1>
+      <p>Manage students, teachers, results, admissions and school records.</p>
+    </div>
+  </section>
+
+  <section class="dashboard-grid">
+    <div class="dash-card">
+      <h3>Total Students</h3>
+      <h2>486</h2>
+      <p>Active learners</p>
+    </div>
+
+    <div class="dash-card">
+      <h3>Total Teachers</h3>
+      <h2>32</h2>
+      <p>Approved staff</p>
+    </div>
+
+    <div class="dash-card">
+      <h3>Pending Admissions</h3>
+      <h2>18</h2>
+      <p>New requests</p>
+    </div>
+  </section>
+
+  <section class="section admin-layout">
+
+    <div class="admin-main">
+
+      <div class="result-section">
+        <div class="result-header">
+          <div>
+            <span class="section-tag">Students</span>
+            <h2>Recent Student Records</h2>
+          </div>
+          <button class="btn primary">Add Student</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Parent Phone</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NAB/JSS2/001</td>
+                <td>Aisha Musa</td>
+                <td>JSS 2</td>
+                <td>0903 399 3930</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>NAB/PRY5/014</td>
+                <td>Abdulrahman Sani</td>
+                <td>PRY 5</td>
+                <td>0812 000 0000</td>
+                <td>Active</td>
+              </tr>
+              <tr>
+                <td>NAB/SS1/008</td>
+                <td>Fatima Bello</td>
+                <td>SS 1</td>
+                <td>0806 000 0000</td>
+                <td>Active</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="result-section">
+        <div class="result-header">
+          <div>
+            <span class="section-tag">Admissions</span>
+            <h2>Admission Requests</h2>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Applicant</th>
+                <th>Class</th>
+                <th>Parent</th>
+                <th>Phone</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Maryam Yusuf</td>
+                <td>PRY 1</td>
+                <td>Mr. Yusuf</td>
+                <td>0700 000 0000</td>
+                <td><button class="mini-btn">Review</button></td>
+              </tr>
+              <tr>
+                <td>Usman Ibrahim</td>
+                <td>JSS 1</td>
+                <td>Mrs. Ibrahim</td>
+                <td>0810 000 0000</td>
+                <td><button class="mini-btn">Review</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <aside class="admin-side">
+
+      <div class="premium-box">
+        <h3>AI School Summary</h3>
+        <p><strong>Performance:</strong> 72% average across uploaded results.</p>
+        <p><strong>Alert:</strong> 14 students need academic attention.</p>
+        <p><strong>Best Class:</strong> JSS 2 currently has the strongest performance.</p>
+      </div>
+
+      <div class="premium-box">
+        <h3>Quick Actions</h3>
+        <div class="quick-actions">
+          <a href="#" class="quick-link">Add Student</a>
+          <a href="#" class="quick-link">Add Teacher</a>
+          <a href="#" class="quick-link">Upload Result</a>
+          <a href="#" class="quick-link">Post Announcement</a>
+          <a href="#" class="quick-link">View Fees</a>
+        </div>
+      </div>
+
+      <div class="premium-box">
+        <h3>Teacher Access</h3>
+        <p>Only approved teachers should be allowed to log in and upload results.</p>
+        <button class="btn primary full-btn">Manage Teachers</button>
+      </div>
+
+    </aside>
+
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>Nabeelah Academy</h3>
+      <p>Enriching Lives, Inspiring Greatness</p>
+    </div>
+
+    <div>
+      <p>📍 Gamagira Road, Kaduna</p>
+      <p>📞 0903 399 3930</p>
+      <p>📧 nabeelahacademy2@gmail.com</p>
+    </div>
+  </div>
+
+  <div class="copy">© 2026 Nabeelah Academy</div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.onclick = () => {
+  navLinks.classList.toggle("show");
+};
+</script>
+
+</body>
+</html>
